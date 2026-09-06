@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aghaz Laptops – Your Trusted Laptop Shop</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shop the best laptops, accessories, and storage devices at Aghaz Laptops. Contact us on WhatsApp!" />
+    <meta name="keywords" content="laptops, computer shop, accessories, SSD, Pakistan" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Aghaz Laptops – Your Trusted Laptop Shop" />
+    <meta property="og:description" content="Shop laptops, accessories, and storage devices. Contact us on WhatsApp!" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Supabase SDK (load only once) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- ===== PUBLIC SHOP ===== -->
+    <!-- ============================================================ -->
+    <div id="public-shop">
+        <!-- Header -->
+        <header class="shop-header">
+            <div class="logo">
+                <img src="logo.jpg" alt="Aghaz Laptops Logo" style="width:300px; height:auto; border-radius:12px;" />
+            </div>
+            <h1 style="margin-top: 5px; margin-bottom: 5px;">Aghaz Laptops</h1>
+            <p style="margin-top: 5px; margin-bottom: 10px;">Your trusted laptop &amp; accessories shop in Matta</p>
+            
+        </header>
+
+        <!-- ===== TAB NAVIGATION ===== -->
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="active" onclick="window.switchTab('laptops', this)">
+                    <span class="tab-icon">💻</span> Laptops
+                </button>
+                <button onclick="window.switchTab('accessories', this)">
+                    <span class="tab-icon">🖱️</span> Accessories
+                </button>
+                <button onclick="window.switchTab('storage', this)">
+                    <span class="tab-icon">💾</span> Storage
+                </button>
+            </div>
+
+            <!-- ===== LAPTOPS TAB ===== -->
+            <div class="tab-content active" id="tab-laptops">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input
+                        type="text"
+                        id="search-laptops"
+                        placeholder="Search laptops by brand, model, specs..."
+                        oninput="window.handleSearch('laptops', this.value)"
+                    />
+                    <button class="clear-search" id="clear-laptops" onclick="window.clearSearch('laptops')">✕</button>
+                    <span class="search-stats" id="stats-laptops">Loading products...</span>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title">🖥️ Laptops</h2>
+                    <span id="count-laptops" style="color:#888; font-size:0.9rem;"></span>
+                </div>
+                <div id="product-list-laptops" class="product-grid">
+                    <!-- Laptops loaded from Supabase -->
+                </div>
+            </div>
+
+            <!-- ===== ACCESSORIES TAB ===== -->
+            <div class="tab-content" id="tab-accessories">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input
+                        type="text"
+                        id="search-accessories"
+                        placeholder="Search accessories (mouse, keyboard, etc.)..."
+                        oninput="window.handleSearch('accessories', this.value)"
+                    />
+                    <button class="clear-search" id="clear-accessories" onclick="window.clearSearch('accessories')">✕</button>
+                    <span class="search-stats" id="stats-accessories">Loading products...</span>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title">🖱️ Accessories</h2>
+                    <span id="count-accessories" style="color:#888; font-size:0.9rem;"></span>
+                </div>
+                <div id="product-list-accessories" class="product-grid">
+                    <!-- Accessories loaded from Supabase -->
+                </div>
+            </div>
+
+            <!-- ===== STORAGE TAB ===== -->
+            <div class="tab-content" id="tab-storage">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input
+                        type="text"
+                        id="search-storage"
+                        placeholder="Search storage (SSD, HDD, etc.)..."
+                        oninput="window.handleSearch('storage', this.value)"
+                    />
+                    <button class="clear-search" id="clear-storage" onclick="window.clearSearch('storage')">✕</button>
+                    <span class="search-stats" id="stats-storage">Loading products...</span>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title">💾 Storage Devices</h2>
+                    <span id="count-storage" style="color:#888; font-size:0.9rem;"></span>
+                </div>
+                <div id="product-list-storage" class="product-grid">
+                    <!-- Storage devices loaded from Supabase -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <section class="location-section">
+            <h2>📍 Our Location</h2>
+            <p class="address"><strong>Address:</strong> Aghaz Laptops, Adnan Market Near Police Station Matta, Swat</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.242891664166!2d72.41100907409113!3d34.92544487112374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dc3f4c2a871eed%3A0xc4f6a4bfc1fff171!2sAghaz%20Computers%20Matta%20Adnan%20Market!5e0!3m2!1sen!2s!4v1788688529300!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </section>
+
+        <!-- ===== CONTACT SECTION with WhatsApp Button ===== -->
+        <section class="contact-section">
+            <h2>📱 Contact Us</h2>
+            <p style="color:#666; margin-bottom:5px;">Reach out to us anytime!</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="icon">📞</span>
+                    <span>
+                        <span class="label">Phone:</span>
+                        <a href="tel:923443537198" class="value">0344-3537198</a> /
+                        <a href="tel:923441614488" class="value">0344-1614488</a>
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">✉️</span>
+                    <span>
+                        <span class="label">Email:</span>
+                        <a href="mailto:aghazcomputers@gmail.com" class="value">aghazcomputers@gmail.com</a> /
+                        <a href="mailto:hamzawadood9@gmail.com" class="value">hamzawadood9@gmail.com</a>
+                    </span>
+                </div>
+                <div class="contact-item" style="flex: 1 1 100%; justify-content: center; margin-top: 10px;">
+                    <a href="https://wa.me/923443537198?text=Hi%20Aghaz%20Laptops%2C%20I%20have%20a%20question" target="_blank" class="whatsapp-btn">
+                        <span class="icon">💬</span> Chat on WhatsApp
+                    </a>
+                    <a href="https://wa.me/923441614488?text=Hi%20Aghaz%20Laptops%2C%20I%20have%20a%20question" target="_blank" class="whatsapp-btn">
+                        <span class="icon">💬</span> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            &copy; 2026 Aghaz Laptops. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== ADMIN PANEL (Hidden from public) ===== -->
+    <!-- ============================================================ -->
+    
+    <!-- ===== ADMIN LOGIN OVERLAY ===== -->
+    <div id="admin-login-overlay">
+        <div class="login-box">
+            <h2>🔐 Admin Access</h2>
+            <p>Enter your credentials to manage products</p>
+            <div class="error-msg" id="admin-login-error"></div>
+            <input type="text" id="admin-username" placeholder="Username" autofocus />
+            <input type="password" id="admin-password" placeholder="Password" />
+            <button onclick="window.adminLogin()">Login</button>
+            <button class="close-btn" onclick="window.closeAdminLogin()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- ===== ADMIN PANEL ===== -->
+    <div id="admin-panel">
+        <div class="admin-header">
+            <div>
+                <h2>📦 Manage Products</h2>
+                <div class="user-info">👋 Logged in as: <span id="admin-username-display">Admin</span></div>
+            </div>
+            <div>
+                <button class="btn btn-danger" onclick="window.adminLogout()">Logout</button>
+                <button class="btn btn-warning" onclick="window.closeAdminPanel()" style="margin-left:8px;">✕ Close</button>
+            </div>
+        </div>
+
+        <hr style="margin: 20px 0; border: none; border-top: 2px solid #eee;" />
+
+        <!-- Add/Edit Product Form -->
+        <h3>➕ Add New Product</h3>
+        <form id="product-form" style="margin-top: 12px;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="product-category">Category *</label>
+                    <select id="product-category" required>
+                        <option value="laptop">💻 Laptop</option>
+                        <option value="accessory">🖱️ Accessory</option>
+                        <option value="storage">💾 Storage</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-brand">Brand *</label>
+                    <input type="text" id="product-brand" placeholder="e.g. Dell, Logitech, Samsung" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="product-model">Model / Name *</label>
+                    <input type="text" id="product-model" placeholder="e.g. Inspiron 15, MX Master 3" required />
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Price *</label>
+                    <input type="text" id="product-price" placeholder="e.g. $550 or PKR 5,000" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="product-specs">Specifications / Description *</label>
+                <input type="text" id="product-specs" placeholder="e.g. i5, 8GB RAM, 512GB SSD or Wireless, 4000 DPI" required />
+            </div>
+            <div class="form-group">
+                <label for="product-image">Image URL</label>
+                <input type="text" id="product-image" placeholder="https://example.com/product.jpg or leave empty" />
+            </div>
+            <div class="form-group" style="display: flex; gap: 10px; align-items: center; margin-top: 5px;">
+                <label style="margin-bottom:0; display:flex; align-items:center; gap:8px; cursor:pointer;">
+                    <input type="checkbox" id="product-instock" checked /> In Stock
+                </label>
+            </div>
+            <input type="hidden" id="product-edit-id" value="" />
+            <button type="submit" class="btn btn-primary">➕ Add Product</button>
+            <button type="button" class="btn btn-warning" onclick="window.resetForm()" style="margin-left:8px;">↻ Clear</button>
+        </form>
+
+        <hr style="margin: 25px 0; border: none; border-top: 2px solid #eee;" />
+
+        <!-- Product List -->
+        <h3>📋 Current Products</h3>
+        <div id="admin-product-list" class="admin-product-list">
+            <!-- Loaded from Supabase -->
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
